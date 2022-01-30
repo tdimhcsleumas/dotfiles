@@ -5,15 +5,25 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" auto install solarized8
+if empty(glob('~/.vim/pack/themes/opt/solarized8'))
+    silent !git clone https://github.com/lifepillar/vim-solarized8.git
+      \ ~/.vim/pack/themes/opt/solarized8
+endif
+
 " plugin manager
 call plug#begin('~/.vim/plugged')
 
 Plug 'preservim/nerdtree'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
 
-set number
+" enable line numbers
+set nu rnu
+
+" enable syntax
 syntax on
 
 set smartindent
@@ -33,7 +43,11 @@ inoremap {<CR>  {<CR>}<Esc>O
 inoremap {{     {
 inoremap {}     {}
 
+" configure nerdtree keybindings
 let g:NERDTreeMapActivatedNode="<F3>"
 let g:NERDTreeMapPreview="<F4>"
 
-colorscheme desert
+" set colorscheme
+set background=dark
+colorscheme solarized8
+
