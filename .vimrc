@@ -17,6 +17,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'pseewald/vim-anyfold'
 
 call plug#end()
 
@@ -214,6 +215,9 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-" disable simple highlight
-let g:cpp_simple_highlight = 0
+" anyfold configuration
+autocmd FileType * AnyFoldActivate
 
+" close all folds
+set foldlevel=0
+let g:anyfold_fold_comments=1
