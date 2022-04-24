@@ -26,9 +26,8 @@ call plug#end()
 set nu rnu
 
 set smartindent
-set shiftwidth=4
-set tabstop=4
-set expandtab
+set shiftwidth=2
+set tabstop=2
 
 inoremap <S-Tab> <C-D>
 
